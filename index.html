@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script type='text/javascript'>
+        function addField()
+        {
+            var number = document.getElementsByClassName("servico").length;
+            var container = document.getElementById("container");
+
+            container.appendChild(document.createTextNode("Serviço " + (number+1)));
+            var input = document.createElement("input");
+            input.className = "servico";
+            input.type = "text";
+            input.name = "servico" + (number+1);
+            container.appendChild(input);
+            container.appendChild(document.createElement("br"));
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="member" name="member" value="">Number of members: (max. 10)<br />
+    <a href="#" id="filldetails" onclick="addFields()">Fill Details</a>
+    <a href="#" id="addField" onclick="addField()">Adicionar Serviço</a>
+    <div id="container">
+    </div>
+</body>
+</html>
