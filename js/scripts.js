@@ -3,6 +3,7 @@ function addField()
 {
     //numero de servicos adicionados
     var number = document.getElementsByClassName("servico").length;
+    var br = document.createElement("br");
 
     //criando <div>
     var div = document.createElement("div");
@@ -12,14 +13,38 @@ function addField()
 
     //adicionando <p>
     var p = document.createElement('p');    
-    p.appendChild(document.createTextNode('Serviço:'));
+    p.appendChild(document.createTextNode('Serviço ' + (number+1) + ' :'));
     document.getElementById('servico' + (number+1)).appendChild(p);
 
     //adicionando <input>
+    /*
     var input = document.createElement('input');
     input.type = 'text';
     input.name = 'servico';
     document.getElementById('servico' + (number+1)).appendChild(input);
+    */
+
+    //adicionando <select> para servicos
+    /*
+    <select name="servico" id="servico">
+        <option value="1">Criação de Site</option>
+        <option value="2">Manutenção de Site</option>
+        <option value="3">Consultoria</option>
+    </select>
+    */
+    var servicos = document.createElement('select');
+    servicos.setAttribute('name', 'servico');
+    servicos.setAttribute('id', 'servico');
+
+    //lista de opcoes
+    for (let i = 0; i < servicosArray.length; i++) {
+        var opt = document.createElement('option');
+        opt.setAttribute('value', servicosArray[i][0]);
+        opt.appendChild( document.createTextNode( servicosArray[i][1] ) );
+        servicos.appendChild(opt);
+    }
+
+    document.getElementById('servico' + (number+1)).appendChild(servicos);
 
     //adicionando botão para remover
     var remover = document.createElement('button');
@@ -44,3 +69,11 @@ function resetFields(className){
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
+
+/* javascript for loop 
+let text = "";
+for (let i = 0; i < servicosArray.length; i++) {
+  text += servicosArray[i][3] + "<br>";
+}
+document.getElementById("log").innerHTML = text;
+*/
