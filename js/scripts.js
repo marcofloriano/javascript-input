@@ -1,3 +1,8 @@
+//carregar valor do <select> dinamicante
+function descricao(event,id) {
+    document.getElementById(id).value = event.target.value;
+}
+
 //adicionar produto ou serviço
 function addField()
 {
@@ -11,9 +16,9 @@ function addField()
     div.className = 'servico';
     document.getElementById('container').appendChild(div);
 
-    //adicionando <p>
+    //adicionando <p> para serviço
     var p = document.createElement('p');    
-    p.appendChild(document.createTextNode('Serviço ' + (number+1) + ' :'));
+    p.appendChild(document.createTextNode('Serviço:'));
     document.getElementById('servico' + (number+1)).appendChild(p);
 
     //adicionando <input>
@@ -24,7 +29,7 @@ function addField()
     document.getElementById('servico' + (number+1)).appendChild(input);
     */
 
-    //adicionando <select> para servicos
+    //adicionando <select> para serviço
     /*
     <select name="servico" id="servico">
         <option value="1">Criação de Site</option>
@@ -33,8 +38,9 @@ function addField()
     </select>
     */
     var servicos = document.createElement('select');
-    servicos.setAttribute('name', 'servico');
-    servicos.setAttribute('id', 'servico');
+    servicos.id = 'servico' + (number+1);
+    servicos.name = 'servico' + (number+1);
+    servicos.setAttribute('onchange', 'descricao(event, \'descricao' + (number+1) + '\')');
 
     //lista de opcoes
     for (let i = 0; i < servicosArray.length; i++) {
@@ -43,8 +49,31 @@ function addField()
         opt.appendChild( document.createTextNode( servicosArray[i][1] ) );
         servicos.appendChild(opt);
     }
-
     document.getElementById('servico' + (number+1)).appendChild(servicos);
+
+    //adicionando <p> para descrição
+    var p = document.createElement('p');    
+    p.appendChild(document.createTextNode('Descrição:'));
+    document.getElementById('servico' + (number+1)).appendChild(p);
+
+    //adicionando <textarea> para descrição do serviço
+    /*
+    <textarea id="servico" name="servico" rows="4" cols="50">
+    https://setor9.com.br/servicos/hospedagem-gerenciada-wordpress/
+    </textarea>
+    */
+    for (let i = 0; i < servicosArray.length; i++) {
+        var descricao = document.createElement('textarea');
+        descricao.id = 'descricao' + (number+1);
+        descricao.name = 'descricao' + (number+1);
+        descricao.rows = '4';
+        descricao.cols = '30';
+        descricao.value = 'teste';                
+    }
+    document.getElementById('servico' + (number+1)).appendChild(descricao);
+
+    //adicionando <br> antes do remover
+    document.getElementById('servico' + (number+1)).appendChild(br);
 
     //adicionando botão para remover
     var remover = document.createElement('button');
@@ -77,3 +106,7 @@ for (let i = 0; i < servicosArray.length; i++) {
 }
 document.getElementById("log").innerHTML = text;
 */
+
+function myFunction(e) {
+    document.getElementById("myText").value = e.target.value
+}
