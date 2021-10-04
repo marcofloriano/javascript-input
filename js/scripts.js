@@ -1,6 +1,11 @@
 //carregar valor do <select> dinamicante
 function descricao(event,id) {
-    document.getElementById(id).value = event.target.value;
+    for (let i = 0; i < servicosArray.length; i++) {
+        if (servicosArray[i][0] == event.target.value) {
+            desc = servicosArray[i][2];
+        }
+    }    
+    document.getElementById(id).value = desc;
 }
 
 //adicionar produto ou serviço

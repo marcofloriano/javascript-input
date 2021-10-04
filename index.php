@@ -1,8 +1,8 @@
 <?php
     $servicos = array(
-        array(1, "Hospedagem Basic", "https://setor9.com.br/servicos/hospedagem-gerenciada-wordpress/", "Contrato Mensal", 30.00),
-        array(2, "Hospedagem Pro", "https://setor9.com.br/servicos/hospedagem-gerenciada-wordpress/", "Contrato Mensal", 50.00),        
-        array(3, "Hospedagem Business", "https://setor9.com.br/servicos/hospedagem-gerenciada-wordpress/", "Contrato Mensal", 80.00),
+        array(1, "Hospedagem Basic", "Para profissionais liberais com 1,5 GB de espaço", "Contrato Mensal", 30.00),
+        array(2, "Hospedagem Pro", "Para pequenos negócios com 5 GB de espaço", "Contrato Mensal", 50.00),        
+        array(3, "Hospedagem Business", "Para empresas online, 10 GB de espaço", "Contrato Mensal", 80.00),
     );
 ?>
 <html>
