@@ -46,6 +46,11 @@ function addField()
     servicos.id = 'servico' + (number+1);
     servicos.name = 'servico' + (number+1);
     servicos.setAttribute('onchange', 'descricao(event, \'descricao' + (number+1) + '\')');
+    var opt_default = document.createElement('option');
+    opt_default.defaultSelected = true;
+    opt_default.disabled = true;
+    opt_default.text = 'Selecione um serviço';
+    servicos.appendChild(opt_default);
 
     //lista de opcoes
     for (let i = 0; i < servicosArray.length; i++) {
