@@ -1,4 +1,4 @@
-//carregar valor do <select> dinamicante
+//carregar descrição dinamicante
 function descricao(event,id) {
     for (let i = 0; i < servicosArray.length; i++) {
         if (servicosArray[i][0] == event.target.value) {
@@ -6,6 +6,16 @@ function descricao(event,id) {
         }
     }    
     document.getElementById(id).value = desc;
+}
+
+//carregar valor dinamicante
+function valor(event,id) {
+    for (let i = 0; i < servicosArray.length; i++) {
+        if (servicosArray[i][0] == event.target.value) {
+            valor = servicosArray[i][4];
+        }
+    }    
+    document.getElementById(id).value = valor;
 }
 
 //adicionar produto ou serviço
@@ -45,7 +55,9 @@ function addField()
     var servicos = document.createElement('select');
     servicos.id = 'servico' + (number+1);
     servicos.name = 'servico' + (number+1);
-    servicos.setAttribute('onchange', 'descricao(event, \'descricao' + (number+1) + '\')');
+    //servicos.setAttribute("onchange", 'descricao(event, \'descricao' + (number+1) + '\'); valor(event, \'valor' + (number+1) + '\')');
+    servicos.setAttribute("onchange", 'valor(event, \'valor' + (number+1) + '\')');
+    //servicos.setAttribute("onchange", 'descricao(event, \'descricao' + (number+1) + '\')');
     var opt_default = document.createElement('option');
     opt_default.defaultSelected = true;
     opt_default.disabled = true;
@@ -72,15 +84,29 @@ function addField()
     https://setor9.com.br/servicos/hospedagem-gerenciada-wordpress/
     </textarea>
     */
-    for (let i = 0; i < servicosArray.length; i++) {
-        var descricao = document.createElement('textarea');
-        descricao.id = 'descricao' + (number+1);
-        descricao.name = 'descricao' + (number+1);
-        descricao.rows = '4';
-        descricao.cols = '30';
-        descricao.value = 'teste';                
-    }
+    var descricao = document.createElement('textarea');
+    descricao.id = 'descricao' + (number+1);
+    descricao.name = 'descricao' + (number+1);
+    descricao.rows = '4';
+    descricao.cols = '30';
+    descricao.value = 'teste';                
     document.getElementById('servico' + (number+1)).appendChild(descricao);
+
+    //adicionando <br> antes do valor
+    document.getElementById('servico' + (number+1)).appendChild(br);
+
+    //adicionando <p> para valor
+    var p = document.createElement('p');    
+    p.appendChild(document.createTextNode('Valor:'));
+    document.getElementById('servico' + (number+1)).appendChild(p);
+
+    //adicionando <input> para valor
+    var valor = document.createElement('input');
+    valor.id = 'valor' + (number+1);
+    valor.name = 'valor' + (number+1);
+    valor.type = 'text';    
+    valor.value = ''; 
+    document.getElementById('servico' + (number+1)).appendChild(valor);
 
     //adicionando <br> antes do remover
     document.getElementById('servico' + (number+1)).appendChild(br);
