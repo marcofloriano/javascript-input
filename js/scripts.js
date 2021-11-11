@@ -143,3 +143,14 @@ document.getElementById("log").innerHTML = text;
 function myFunction(e) {
     document.getElementById("myText").value = e.target.value
 }
+
+function total() {
+    var total = [];
+    var number = document.getElementsByClassName("servico").length;
+    for (let i = 0; i < number; i++) {
+        total.push(document.getElementById('valor' + number).value);
+    }
+    var p = document.createElement("p");
+    p.appendChild(document.createTextNode(total));
+    document.getElementById('total').appendChild(p);
+}

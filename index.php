@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <a href="#" id="addField" onclick="addField()">Adicionar Serviço</a>
-    <a href="#" id="resetFields" onclick="resetFields('servico')">Limpar Serviços</a>    
     <div id="container"></div>
+    <br>
+    <a href="#" id="addField" onclick="addField()">Adicionar Serviço</a> |  
+    <a href="#" id="resetFields" onclick="resetFields('servico')">Limpar Serviços</a> |  
+    <a href="#" onclick="total()">Calcular</a>
     <p id="log"></p>
+    <div id="total">
+    </div>
 
     <script type="text/javascript">
         var servicosArray = <?php echo json_encode($servicos); ?>;
