@@ -144,13 +144,16 @@ function myFunction(e) {
     document.getElementById("myText").value = e.target.value
 }
 
-function total() {
-    var total = [];
-    var number = document.getElementsByClassName("servico").length;
-    for (let i = 0; i < number; i++) {
-        total.push(document.getElementById('valor' + number).value);
+function subTotal() {
+    const array = [];
+    let number = 1;
+    let soma = 0;
+    for (let i = 0; i < document.getElementsByClassName("servico").length; i++) {
+        array.push(Number(document.getElementById('valor' + number).value));
+        soma += array[i];
+        number++;
     }
     var p = document.createElement("p");
-    p.appendChild(document.createTextNode(total));
+    p.appendChild(document.createTextNode(soma));
     document.getElementById('total').appendChild(p);
 }

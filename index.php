@@ -14,7 +14,7 @@
     <br>
     <a href="#" id="addField" onclick="addField()">Adicionar Serviço</a> |  
     <a href="#" id="resetFields" onclick="resetFields('servico')">Limpar Serviços</a> |  
-    <a href="#" onclick="total()">Calcular</a>
+    <a href="#" onclick="subTotal()">Calcular</a>
     <p id="log"></p>
     <div id="total">
     </div>
